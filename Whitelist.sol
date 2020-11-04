@@ -126,7 +126,6 @@ contract ShabuWhitelistSale {
   }
   function reclaim() public {
     require(msg.sender == owner && Token.balanceOf(address(this)) > 0 && now.sub(startDate) > DURATION);
-    // burn the left over.
     Token.transfer(owner, Token.balanceOf(address(this)));
   }
   function addWhitelist(address _address) public {
